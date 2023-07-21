@@ -11,7 +11,7 @@ export default function CartItem({item}) {
     return (
         <div className="flex gap-x-8">
             <Link to={`product/${item.id}`} className="w-[70px] h-[70px]">
-                <img src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} alt="" />
+                <img src={`${item.attributes.image.data.attributes.url}`} alt="" />
             </Link>
             <div className="flex-1">
                 <div className="flex gap-x-4 mb-3">

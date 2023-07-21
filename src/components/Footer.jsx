@@ -13,15 +13,15 @@ export default function Footer() {
                     <button className="btn btn-accent min-w-[150px]">Join</button>
                 </form>
                 <div className="text-base text-white/60 flex gap-x-6 capitalize max-w-max mx-auto mb-9">
-                    <a href="http://localhost:3000" className="hover:text-white transition-all">Return policy</a>
-                    <a href="http://localhost:3000" className="hover:text-white transition-all">Track your order</a>
-                    <a href="http://localhost:3000" className="hover:text-white transition-all">Shipping & Delivery</a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all">Return policy</a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all">Track your order</a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all">Shipping & Delivery</a>
                 </div>
                 <div className="flex gap-x-6 max-w-max mx-auto text-lg mb-16">
-                    <a href="http://localhost:3000" className="hover:text-white transition-all"><FaYoutube /></a>
-                    <a href="http://localhost:3000" className="hover:text-white transition-all"><FaInstagram /></a>
-                    <a href="http://localhost:3000" className="hover:text-white transition-all"><FaTwitter /></a>
-                    <a href="http://localhost:3000" className="hover:text-white transition-all"><FaFacebook /></a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all"><FaYoutube /></a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all"><FaInstagram /></a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all"><FaTwitter /></a>
+                    <a href="https://joemar-ceneza-e-commerce-camera-haus.netlify.app/" className="hover:text-white transition-all"><FaFacebook /></a>
                 </div>
             </div>
             <div className="py-10 border-t border-t-white/10">
