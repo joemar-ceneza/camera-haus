@@ -10,8 +10,6 @@ export default function ProductDetails() {
     const {addToCart} = useContext(CartContext);
     const {id} = useParams();
     const {data} = useFetch(`/products?populate=*&filters[id][$eq]=${id}`);
-    const {sample} = useFetch(`/products?populate=*`);
-    console.log(sample);
     if(!data) {
         return <div className="container mx-auto">loading...</div>;
     }
