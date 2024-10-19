@@ -1,3 +1,3 @@
 export default function Benefits() {
-    return <div>Benefits</div>;
+  return <div>Benefits</div>;
 }

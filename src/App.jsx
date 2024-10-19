@@ -9,30 +9,31 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 // layout
 const Layout = () => {
-    return (
-        <div>
-            <Header />
-            <Outlet />
-            <Footer />
-        </div>
-    );
-}
+  return (
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
-    {
-        element: <Layout />,
-        children: [
-            {path:"/", element: <Home />},
-            {path:"/products/:id", element: <Products />},
-            {path:"/product/:id", element: <ProductDetails />},
-            {path:"/search", element: <Search />}
-        ]
-    }
+  {
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/products/:id", element: <Products /> },
+      { path: "/product/:id", element: <ProductDetails /> },
+      { path: "/search", element: <Search /> },
+    ],
+  },
 ]);
 
 export default function App() {
-    return (
-        <div>
-            <RouterProvider router={router} />
-        </div>);
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
 }
