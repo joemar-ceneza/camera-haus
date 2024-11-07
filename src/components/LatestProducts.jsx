@@ -5,7 +5,7 @@ import ProductSlider from "./ProductSlider.jsx";
 
 export default function LatestProducts() {
   // get new products
-  const { data } = useFetch("/products?populate=*&filters[isNew]=true");
+  const { data } = useFetch("/products/products?isNewProduct=true");
   return (
     <div className="mb-16">
       <div className="container mx-auto">
