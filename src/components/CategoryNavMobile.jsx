@@ -17,10 +17,10 @@ export default function CategoryNavMobile({ setCatnavMobile }) {
         {data?.map((category) => {
           return (
             <Link
-              to={`products/${category.id}`}
+              to={`products/${category._id}`}
               className="uppercase font-medium"
-              key={category.id}>
-              {category.attributes.title} Cameras
+              key={category._id}>
+              {category.title} Cameras
             </Link>
           );
         })}
