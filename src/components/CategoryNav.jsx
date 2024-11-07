@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function CartegoryNav() {
   const { data } = useFetch("/categories");
+
   return (
     <aside className="hidden xl:flex">
       <div className="bg-primary flex flex-col w-[286px] h-[500px] rounded-[8px] overflow-hidden">
@@ -15,10 +16,10 @@ export default function CartegoryNav() {
           {data?.map((category) => {
             return (
               <Link
-                to={`/products/${category.id}`}
+                to={`/products/${category._id}`}
                 className="cursor-pointer uppercase"
-                key={category.id}>
-                {category.attributes.title}
+                key={category._id}>
+                {category.title}
               </Link>
             );
           })}
