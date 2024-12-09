@@ -16,7 +16,7 @@ export default function CartegoryNav() {
           {data?.map((category) => {
             return (
               <Link
-                to={`/products/${category._id}`}
+                to={`/products/${category.slug}`}
                 className="cursor-pointer uppercase"
                 key={category._id}>
                 {category.title}
