@@ -7,16 +7,14 @@ import { useEffect, useState } from "react";
 export default function Products() {
   const { id } = useParams();
   // get products based on category
-  const { data } = useFetch(
-    `/products?populate=*&filters[categories][id][$eq]=${id}`
-  );
-  const [title, setTitle] = useState(null);
-  // set the title when the data is fetched
+  const { data } = useFetch(`/categories/categories/${id}`);
+  const [category, setCategory] = useState(null);
+  // set the category title when the data is fetched
   useEffect(() => {
     if (data) {
-      setTitle(data[0].attributes.categories.data[0].attributes.title);
+      setCategory(data.category); // Store the category info
     }
-  });
+  }, [data]);
   return (
     <div className="mb-16 pt-40 lg:pt-0">
       <div className="container mx-auto">
@@ -24,11 +22,11 @@ export default function Products() {
           <CategoryNav />
           <main>
             <div className="py-3 text-xl uppercase text-center lg:text-left">
-              {title} cameras
+              {category ? `${category.slug} cameras` : "Loading category..."}
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-[15px] md:gap-[30px]">
-              {data?.map((product) => {
-                return <Product product={product} key={product.id} />;
+              {data?.products.map((product) => {
+                return <Product product={product} key={product._id} />;
               })}
             </div>
           </main>
