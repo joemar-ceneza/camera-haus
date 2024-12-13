@@ -13,7 +13,7 @@ export default function LatestProducts() {
           Latest Products
         </h2>
       </div>
-      <ProductSlider data={data} />
+      <ProductSlider data={data} latestLabel={true} relatedLabel={false} />
     </div>
   );
 }
