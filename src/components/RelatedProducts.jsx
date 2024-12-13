@@ -4,14 +4,12 @@ import ProductSlider from "./ProductSlider";
 
 export default function RelatedProducts({ categoryTitle }) {
   // get products by category title
-  const { data } = useFetch(
-    `/products?populate=*&filters[categories][title]=${categoryTitle}`
-  );
+  const { data } = useFetch(`/products/products/${categoryTitle}`);
   return (
     <div className="mb-16">
       <div className="container mx-auto">
         <h2 className="h2 mb-6 text-center xl:text-left">Related Products</h2>
-        <ProductSlider data={data} />
+        <ProductSlider data={data} relatedLabel={true} latestLabel={false} />
       </div>
     </div>
   );
