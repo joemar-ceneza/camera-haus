@@ -12,7 +12,7 @@ export default function Products() {
   // set the category title when the data is fetched
   useEffect(() => {
     if (data) {
-      setCategory(data.category); // Store the category info
+      setCategory(data.category.title); // Store the category info
     }
   }, [data]);
   return (
@@ -22,7 +22,7 @@ export default function Products() {
           <CategoryNav />
           <main>
             <div className="py-3 text-xl uppercase text-center lg:text-left">
-              {category ? `${category.slug} cameras` : "Loading category..."}
+              {category ? `${category.title} cameras` : "Loading category..."}
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-[15px] md:gap-[30px]">
               {data?.products.map((product) => {
