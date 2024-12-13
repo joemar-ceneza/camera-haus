@@ -10,7 +10,8 @@ import { Pagination, Navigation } from "swiper";
 // components
 import Product from "../components/Product";
 
-export default function ProductSlider({ data }) {
+export default function ProductSlider({ data, relatedLabel, latestLabel }) {
+  const productsToDisplay = latestLabel ? data : data?.relatedProducts;
   return (
     <Swiper
       modules={[Pagination, Navigation]}
@@ -39,10 +40,14 @@ export default function ProductSlider({ data }) {
       }}
       className="productSlider mx-auto max-w-[360px] md:max-w-lg xl:max-w-[1410px]">
       <>
-        {data?.map((product) => {
+        {productsToDisplay?.map((product) => {
           return (
             <SwiperSlide key={product._id}>
-              <Product product={product} />
+              <Product
+                product={product}
+                relatedLabel={relatedLabel}
+                latestLabel={latestLabel}
+              />
             </SwiperSlide>
           );
         })}
