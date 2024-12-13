@@ -15,7 +15,7 @@ export default function ProductDetails() {
     return <div className="container mx-auto">loading...</div>;
   }
   // category title
-  const categoryTitle = data[0].title;
+  const categoryTitle = data[0].slug;
 
   return (
     <div className="mb-16 pt-44 lg:pt-[30px] xl:pt-0">
