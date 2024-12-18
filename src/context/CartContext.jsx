@@ -8,6 +8,7 @@ export default function CartProvider({ children }) {
   const [itemsAmount, setItemsAmount] = useState(0);
   const [amount, setAmount] = useState(0);
   const [total, setTotal] = useState([]);
+
   // cart amount
   useEffect(() => {
     const amount = cart.reduce((a, c) => {
@@ -15,6 +16,7 @@ export default function CartProvider({ children }) {
     }, 0);
     setItemsAmount(amount);
   }, [cart]);
+
   // add to cart
   const addToCart = (item, id) => {
     const itemID = parseInt(id);
@@ -22,11 +24,11 @@ export default function CartProvider({ children }) {
     setCart([...cart, newItem]);
     // check if item is already in the cart
     const cartItem = cart.find((item) => {
-      return item.id === itemID;
+      return item._id === itemID;
     });
     if (cartItem) {
       const newCart = cart.map((item) => {
-        if (item.id === itemID) {
+        if (item._id === itemID) {
           setAmount(cartItem.amount + 1);
           return { ...item, amount: cartItem.amount + 1 };
         } else {
@@ -40,23 +42,25 @@ export default function CartProvider({ children }) {
     // open the cart sidebar
     setIsOpen(true);
   };
+
   // remove from cart
   const removeFromCart = (id) => {
     const newCart = cart.filter((item) => {
-      return item.id !== id;
+      return item._id !== id;
     });
     setCart(newCart);
   };
+
   // handle input
   const handleInput = (e, id) => {
     const value = parseInt(e.target.value);
     // find the item in the cart by id
     const cartItem = cart.find((item) => {
-      return item.id === id;
+      return item._id === id;
     });
     if (cartItem) {
       const newCart = cart.map((item) => {
-        if (item.id === id) {
+        if (item._id === id) {
           if (isNaN(value)) {
             setAmount(1);
             return { ...item, amount: 1 };
@@ -72,15 +76,16 @@ export default function CartProvider({ children }) {
     }
     setIsOpen(true);
   };
+
   // handle select
   const handleSelect = (e, id) => {
     const value = parseInt(e.target.value);
     const cartItem = cart.find((item) => {
-      return item.id === id;
+      return item._id === id;
     });
     if (cartItem) {
       const newCart = [...cart].map((item) => {
-        if (item.id === id) {
+        if (item._id === id) {
           setAmount(value);
           return { ...item, amount: value };
         } else {
@@ -90,17 +95,20 @@ export default function CartProvider({ children }) {
       setCart(newCart);
     }
   };
+
   // cart total
   useEffect(() => {
     const total = cart.reduce((a, c) => {
-      return a + c.attributes.price * c.amount;
+      return a + c.regularPrice * c.amount;
     }, 0);
     setTotal(total);
   }, [cart]);
+
   // clear cart
   const clearCart = () => {
     setCart([]);
   };
+
   return (
     <CartContext.Provider
       value={{

@@ -21,7 +21,7 @@ export default function Cart() {
         cart,
       });
       await stripe.redirectToCheckout({
-        sessionId: res.data.stripeSession.id,
+        sessionId: res.data.stripeSession._id,
       });
     } catch (error) {
       console.log(error);
@@ -37,7 +37,7 @@ export default function Cart() {
         </div>
         <div className="flex flex-col gap-y-10 px-2">
           {cart.map((item) => {
-            return <CartItem item={item} key={item.id} />;
+            return <CartItem item={item} key={item._id} />;
           })}
         </div>
       </div>
