@@ -10,12 +10,12 @@ export default function CartItem({ item }) {
   const { removeFromCart } = useContext(CartContext);
   return (
     <div className="flex gap-x-8">
-      <Link to={`product/${item._id}`} className="w-[70px] h-[70px]">
+      <Link to={`product/${item.slug}`} className="w-[70px] h-[70px]">
         <img src={`${item.image}`} alt="" />
       </Link>
       <div className="flex-1">
         <div className="flex gap-x-4 mb-3">
-          <Link to={`product/${item._id}`}>{item.title}</Link>
+          <Link to={`product/${item.slug}`}>{item.title}</Link>
           <div
             onClick={() => removeFromCart(item._id)}
             className="cursor-pointer text-[24px] hover:text-accent transition-all">
