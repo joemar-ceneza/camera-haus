@@ -39,7 +39,7 @@ export default function ProductDetails() {
                 ${data[0].regularPrice}
               </div>
               <button
-                onClick={() => addToCart(data, id)}
+                onClick={() => addToCart(data[0])}
                 className="btn btn-accent">
                 Add to cart
               </button>
