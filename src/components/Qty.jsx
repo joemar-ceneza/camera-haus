@@ -8,7 +8,7 @@ export default function Qty({ item }) {
     <div className="flex gap-x-6 items-center text-primary">
       {item.amount < 10 ? (
         <select
-          onChange={(e) => handleSelect(e, item.id)}
+          onChange={(e) => handleSelect(e, item._id)}
           value={item.amount}
           className="p-2 rounded-lg w-[100px] h-12 outline-none text-primary">
           <option value="1">1</option>
@@ -24,7 +24,7 @@ export default function Qty({ item }) {
         </select>
       ) : (
         <input
-          onBlur={(e) => handleInput(e, item.id)}
+          onBlur={(e) => handleInput(e, item._id)}
           className="text-primary placeholder:text-primary h-12 rounded-md p-4 w-[120px] outline-accent"
           type="text"
           placeholder={`${item.amount}`}></input>
