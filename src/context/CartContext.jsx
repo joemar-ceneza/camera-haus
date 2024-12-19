@@ -18,26 +18,22 @@ export default function CartProvider({ children }) {
   }, [cart]);
 
   // add to cart
-  const addToCart = (item, id) => {
-    const itemID = parseInt(id);
-    const newItem = { ...item[0], amount: 1 };
-    setCart([...cart, newItem]);
-    // check if item is already in the cart
-    const cartItem = cart.find((item) => {
-      return item._id === itemID;
-    });
-    if (cartItem) {
-      const newCart = cart.map((item) => {
-        if (item._id === itemID) {
-          setAmount(cartItem.amount + 1);
-          return { ...item, amount: cartItem.amount + 1 };
-        } else {
-          return item;
-        }
-      });
-      setCart(newCart);
+  const addToCart = (item) => {
+    const itemID = item._id;
+    const existingItem = cart.find((cartItem) => cartItem._id === itemID);
+
+    if (existingItem) {
+      // If item already exists in cart, update its amount
+      const updatedCart = cart.map((cartItem) =>
+        cartItem._id === itemID
+          ? { ...cartItem, amount: cartItem.amount + 1 }
+          : cartItem
+      );
+      setCart(updatedCart);
     } else {
-      setCart([...cart, newItem]);
+      // If item does not exist in cart, add it with amount 1
+      const newItem = { ...item, amount: 1 };
+      setCart((prevCart) => [...prevCart, newItem]);
     }
     // open the cart sidebar
     setIsOpen(true);
